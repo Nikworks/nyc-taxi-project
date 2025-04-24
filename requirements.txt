@@ -1,0 +1,33 @@
+# Database access
+sqlalchemy==2.0.23
+psycopg2-binary==2.9.9
+
+# Data processing
+pandas==2.1.3
+numpy==1.26.2
+
+# File formats
+pyarrow==14.0.1
+fastparquet==2023.10.1
+
+# Utilities
+tqdm==4.66.1
+wget==3.2
+requests==2.31.0
+urllib3==2.1.0
+
+# Command-line interface for Postgres (optional)
+pgcli==4.0.1
+
+# Visualization (optional but useful for data exploration)
+matplotlib==3.8.2
+seaborn==0.13.0
+
+# Jupyter notebook support (optional for interactive analysis)
+jupyter==1.0.0
+notebook==7.0.6
+ipykernel==6.29.0
+
+# Docker interaction (optional)
+docker==7.0.0
+docker-compose==1.29.2
