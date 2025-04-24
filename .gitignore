@@ -1,0 +1,22 @@
+cat > .gitignore << EOF
+# Data files
+*.csv
+*.csv.gz
+*.parquet
+
+# PostgreSQL data directory
+ny_taxi_postgres_data/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+EOF
