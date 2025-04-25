@@ -1,0 +1,33 @@
+# Set your variables
+PROJECT_ID="terraform-gcp-project-457818"
+SA_NAME="terraform-admin"
+SA_DESCRIPTION="Service account for Terraform automation"
+SA_DISPLAY_NAME="Terraform Admin"
+
+# Create the service account
+gcloud iam service-accounts create $SA_NAME \
+    --description="$SA_DESCRIPTION" \
+    --display-name="$SA_DISPLAY_NAME"
+
+
+# Get the full service account email
+PROJECT_ID="terraform-gcp-project-457818"
+SA_EMAIL="nyc-tax-project-sa@terraform-gcp-project-457818.iam.gserviceaccount.com"
+
+# Assign the required roles
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$SA_EMAIL" \
+    --role="roles/storage.admin"
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$SA_EMAIL" \
+    --role="roles/storage.objectAdmin"
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$SA_EMAIL" \
+    --role="roles/bigquery.admin"
+
+# Add this if you need to deploy VMs
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$SA_EMAIL" \
+    --role="roles/compute.admin"
